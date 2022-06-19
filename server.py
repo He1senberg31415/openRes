@@ -3,7 +3,7 @@ import socket
 known_port = 50002
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-sock.bind(('0.0.0.0', 55555))
+sock.bind(('localhost', 55555))
 
 while True:
     clients = []
