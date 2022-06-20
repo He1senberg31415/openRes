@@ -1,14 +1,17 @@
 import socket
 import sys
 import threading
+import requests
 
 rendezvous = ('de1.localtonet.com', 54078)
 
 # connect to rendezvous
 print('connecting to rendezvous server')
 
+res = requests.get('https://api.ipify.org?format=json')
+
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-sock.bind(('0.0.0.0', 50001))
+sock.bind((res["ip"], 50001))
 sock.sendto(b'0', rendezvous)
 
 while True:
