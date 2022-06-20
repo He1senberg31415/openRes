@@ -38,18 +38,18 @@ sock.sendto(b'0', (ip, dport))
 
 print('ready to exchange messages\n')
 
-# listen for
-# equiv: nc -u -l 50001
-# def listen():
-#     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-#     sock.bind(('0.0.0.0', sport))
+def listen():
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.bind(('0.0.0.0', sport))
 
-#     while True:
-#         data = sock.recv(1024)
-#         print('\rpeer: {}\n> '.format(data.decode()), end='')
+    print(sock)
 
-# listener = threading.Thread(target=listen, daemon=True);
-# listener.start()
+    while True:
+        data = sock.recv(1024)
+        print('\rpeer: {}\n> '.format(data.decode()), end='')
+
+listener = threading.Thread(target=listen, daemon=True);
+listener.start()
 
 # # send messages
 # # equiv: echo 'xxx' | nc -u -p 50002 x.x.x.x 50001
