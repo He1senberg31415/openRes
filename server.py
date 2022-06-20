@@ -20,6 +20,7 @@ while True:
 
         if len(clients) == 2:
             print('got 2 clients, sending details to each')
+            print(clients)
             break
 
     c1 = clients.pop()
