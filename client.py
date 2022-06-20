@@ -1,14 +1,17 @@
 import socket
 import sys
 import threading
-import requests
+from urllib.request import urlopen
+import json
 
 rendezvous = ('de1.localtonet.com', 54078)
 
 # connect to rendezvous
 print('connecting to rendezvous server')
 
-res = requests.get('https://api.ipify.org?format=json')
+res = json.loads(urlopen('https://api.ipify.org?format=json'))
+
+print(f"Your ip: {res['ip']}")
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.bind((res["ip"], 50001))
