@@ -2,6 +2,8 @@ import socket
 import sys
 import threading
 
+from pyparsing import null_debug_action
+
 rendezvous = ('de1.localtonet.com', 54078)
 
 # connect to rendezvous
@@ -38,7 +40,11 @@ sock.sendto(b'0', (ip, dport))
 
 print('ready to exchange messages\n')
 
+sock = None
+
 def listen():
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.bind(('0.0.0.0', sport))
     print(str(sock))
 
     while True:
