@@ -53,9 +53,10 @@ listener.start()
 
 # # send messages
 # # equiv: echo 'xxx' | nc -u -p 50002 x.x.x.x 50001
-# sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-# sock.bind(('0.0.0.0', dport))
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock.bind(('0.0.0.0', dport))
+print("sock2:" + sock)
 
-# while True:
-#     msg = input('> ')
-#     sock.sendto(msg.encode(), (ip, sport))
+while True:
+    msg = input('> ')
+    sock.sendto(msg.encode(), (ip, sport))
