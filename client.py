@@ -2,8 +2,6 @@ import socket
 import sys
 import threading
 
-from pyparsing import null_debug_action
-
 rendezvous = ('de1.localtonet.com', 54078)
 
 # connect to rendezvous
