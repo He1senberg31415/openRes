@@ -39,10 +39,7 @@ sock.sendto(b'0', (ip, dport))
 print('ready to exchange messages\n')
 
 def listen():
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock.bind(('0.0.0.0', sport))
-
-    print(sock)
+    print(str(sock))
 
     while True:
         data = sock.recv(1024)
