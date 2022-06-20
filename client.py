@@ -9,12 +9,14 @@ rendezvous = ('de1.localtonet.com', 54078)
 # connect to rendezvous
 print('connecting to rendezvous server')
 
-res = json.loads(urlopen('https://api.ipify.org?format=json'))
+res = json.loads(urlopen('https://api.ipify.org?format=json').read())
 
 print(f"Your ip: {res['ip']}")
 
+ipad = str(res["ip"])
+
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-sock.bind((res["ip"], 50001))
+sock.bind(("0.0.0.0", 50001))
 sock.sendto(b'0', rendezvous)
 
 while True:
@@ -44,7 +46,7 @@ sock.sendto(b'0', (ip, dport))
 
 print('ready to exchange messages\n')
 
-sock = None
+sock.close()
 
 def listen():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
