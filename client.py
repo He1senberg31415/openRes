@@ -2,7 +2,7 @@ import socket
 import sys
 import threading
 
-rendezvous = ('de1.localtonet.com', 50708)
+rendezvous = ('de1.localtonet.com', 54078)
 
 # connect to rendezvous
 print('connecting to rendezvous server')
