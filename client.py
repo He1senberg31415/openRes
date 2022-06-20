@@ -55,7 +55,7 @@ listener.start()
 # # equiv: echo 'xxx' | nc -u -p 50002 x.x.x.x 50001
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.bind(('0.0.0.0', dport))
-print("sock2:" + sock)
+print(f"sock2: {str(sock)}")
 
 while True:
     msg = input('> ')
