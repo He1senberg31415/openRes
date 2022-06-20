@@ -10,6 +10,8 @@ while True:
 
     while True:
         data, address = sock.recvfrom(128)
+        print(data)
+        print(address)
 
         print('connection from: {}'.format(address))
         clients.append(address)
